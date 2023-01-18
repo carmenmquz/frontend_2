@@ -6,7 +6,8 @@ import jsonapiClient from 'ra-jsonapi-client';
 import { UserList } from 'components/react-admin/users';
 import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
 
-//TODO se pueden eliminar estas dos líneas porque por el momento no las vamos a necesitar. Serían para hacer un blog quizás
+//TODO se pueden eliminar estas dos líneas porque por el momento no las vamos a necesitar. 
+//Serían para hacer un blog quizás
 import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
 
