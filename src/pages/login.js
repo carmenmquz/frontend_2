@@ -1,30 +1,27 @@
 import ApplicationLogo from 'components/ApplicationLogo'
 import AuthCard from 'components/AuthCard'
-import AuthSessionStatus from 'components/AuthSessionStatus'
-import AuthValidationErrors from 'components/AuthValidationErrors'
 import Button from 'components/Button'
 import GuestLayout from 'components/Layouts/GuestLayout'
 import Input from 'components/Input'
 import Label from 'components/Label'
-import { useAuth } from 'hooks/auth'
+import { useLogin, useNotify, Notification } from 'react-admin';
 import { useState } from 'react'
-import { Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-const Login = () => {
-
-  const { login } = useAuth({
-    middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard'
-  })
+const Login = (props) => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errors, setErrors] = useState([])
-  const [status, setStatus] = useState(null)
+  const login = useLogin();
+  const notify = useNotify();
+  const handleDataProvider = props.handleDataProvider
 
   const submitForm = async event => {
     event.preventDefault()
-    login({ email, password, setErrors, setStatus })
+    login({ email, password, handleDataProvider })
+      .catch(() =>
+        notify('Invalid email or password')
+      );
   }
 
   return (
@@ -35,10 +32,6 @@ const Login = () => {
             <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
           </Link>
         }>
-        {/* Session Status */}
-        <AuthSessionStatus className="mb-4" status={status} />
-        {/* Validation Errors */}
-        <AuthValidationErrors className="mb-4" errors={errors} />
         <form onSubmit={submitForm}>
           {/* Email Address */}
           <div>
@@ -79,7 +72,7 @@ const Login = () => {
                 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
               <span className="ml-2 text-sm text-gray-600">
-                  Remember me
+                Remember me
               </span>
             </label>
           </div>
@@ -88,10 +81,10 @@ const Login = () => {
               to="/forgot-password"
               className="underline text-sm text-gray-600 hover:text-gray-900"
             >
-                Forgot your password?
+              Forgot your password?
             </NavLink>
             <Button className="ml-3">
-                Login
+              Login
             </Button>
           </div>
         </form>
