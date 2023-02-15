@@ -9,7 +9,7 @@ import { default as AuthProvider } from 'components/react-admin/authProvider';
 import { default as Login } from 'pages/login';
 
 import { UserList } from 'components/react-admin/users';
-import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
+import { TutorList, TutorEdit, TutorCreate } from 'components/react-admin/tutors';
 //aquí importa el Artworklist
 
 //TODO se pueden eliminar estas dos líneas porque por el momento no las vamos a necesitar. 
@@ -17,11 +17,11 @@ import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-adm
 import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
 
-//aquí importa el customer icon
+//aquí importa el tutor icon
 import PostIcon from '@mui/icons-material/Book';
 import UserIcon from '@mui/icons-material/Group';
 import MigrationIcon from '@mui/icons-material/Storage';
-import CustomerIcon from '@mui/icons-material/SupportAgent';
+import TutorIcon from '@mui/icons-material/SupportAgent';
 
 import { AdminLayout } from 'components/react-admin/adminLayout';
 
@@ -63,7 +63,7 @@ const RAdmin = () => {
       authProvider={AuthProvider}
       loginPage={myLogin}
     >
-      <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
+      <Resource name="tutors" list={TutorList} icon={TutorIcon} edit={TutorEdit} create={TutorCreate} />
       <Resource name="migrations"
         list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
       <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
