@@ -1,4 +1,4 @@
-// in src/components/react-admin/customers.js
+// in src/components/react-admin/tutors.js
 import {
     List,
     SimpleList,
@@ -16,15 +16,15 @@ import {
 import { useRecordContext} from 'react-admin';
 import { useMediaQuery } from '@mui/material';
 
-const customerFilters = [
+const tutorFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
     <ReferenceInput source="user_id" label="User" reference="users" />
 ];
 
-export const CustomerList = () => {
+export const TutorList = () => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   return (
-    <List filters={customerFilters} >
+    <List filters={tutorFilters} >
       {isSmall ? (
         <SimpleList
           primaryText="%{first_name} %{last_name}"
@@ -50,13 +50,13 @@ export const CustomerList = () => {
   );
 }
 
-const CustomerTitle = () => {
+const TutorTitle = () => {
   const record = useRecordContext();
-  return <span>Customer {record ? `"${record.first_name} ${record.last_name}"` : ''}</span>;
+  return <span>Tutor {record ? `"${record.first_name} ${record.last_name}"` : ''}</span>;
 };
 
-export const CustomerEdit = () => (
-    <Edit title={<CustomerTitle />}>
+export const TutorEdit = () => (
+    <Edit title={<TutorTitle />}>
     <SimpleForm>
         <TextInput source="id" disabled />
         <ReferenceInput source="user_id" reference="users" />
@@ -69,7 +69,7 @@ export const CustomerEdit = () => (
     </Edit>
 );
 
-export const CustomerCreate = () => (
+export const TutorCreate = () => (
     <Create>
         <SimpleForm>
           <ReferenceInput source="user_id" reference="users" />
