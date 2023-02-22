@@ -10,18 +10,22 @@ import { default as Login } from 'pages/login';
 
 import { UserList } from 'components/react-admin/users';
 import { TutorList, TutorEdit, TutorCreate } from 'components/react-admin/tutors';
+import { CuidadorList, CuidadorEdit, CuidadorCreate } from 'components/react-admin/cuidadors';
+import { ContratacionList, ContratacionEdit, ContratacionCreate } from 'components/react-admin/contratacions';
 //aquí importa el Artworklist
 
 //TODO se pueden eliminar estas dos líneas porque por el momento no las vamos a necesitar. 
 //Serían para hacer un blog quizás
-import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
-import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
+// import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
+// import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
 
 //aquí importa el tutor icon
-import PostIcon from '@mui/icons-material/Book';
+// import PostIcon from '@mui/icons-material/Book';
+// import MigrationIcon from '@mui/icons-material/Storage';
 import UserIcon from '@mui/icons-material/Group';
-import MigrationIcon from '@mui/icons-material/Storage';
-import TutorIcon from '@mui/icons-material/SupportAgent';
+import TutorIcon from '@mui/icons-material/EscalatorWarning';
+import CuidadorIcon from '@mui/icons-material/BabyChangingStation';
+import ContratacionIcon from '@mui/icons-material/Handshake';
 
 import { AdminLayout } from 'components/react-admin/adminLayout';
 
@@ -63,11 +67,14 @@ const RAdmin = () => {
       authProvider={AuthProvider}
       loginPage={myLogin}
     >
-      <Resource name="tutors" list={TutorList} icon={TutorIcon} edit={TutorEdit} create={TutorCreate} />
-      <Resource name="migrations"
+      <Resource name="usuarios" list={UserList} icon={UserIcon} recordRepresentation="name" />
+      <Resource name="tutores" list={TutorList} icon={TutorIcon} edit={TutorEdit} create={TutorCreate} />
+      <Resource name="cuidadores" list={CuidadorList} icon={CuidadorIcon} edit={CuidadorEdit} create={CuidadorCreate} />
+      <Resource name="contrataciones"
+      list={ContratacionList} icon={ContratacionIcon} edit={ContratacionEdit} create={ContratacionCreate} />
+      {/* <Resource name="migrations"
         list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
-      <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-      <Resource name="users" list={UserList} icon={UserIcon} recordRepresentation="name" />
+      <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} /> */}
     </Admin>
   )
 }
