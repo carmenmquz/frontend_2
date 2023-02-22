@@ -1,4 +1,4 @@
-// in src/components/react-admin/tutors.js
+// in src/components/react-admin/cuidadors.js
 import {
     List,
     SimpleList,
@@ -17,15 +17,15 @@ import {
 import { useRecordContext} from 'react-admin';
 import { useMediaQuery } from '@mui/material';
 
-const tutorFilters = [
+const cuidadorFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
-    <ReferenceInput source="user_id" label="User" reference="users" />
+    <ReferenceInput source="user_id" label="User" reference="usuarios" />
 ];
 
-export const TutorList = () => {
+export const CuidadorList = () => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   return (
-    <List filters={tutorFilters} >
+    <List filters={cuidadorFilters} >
       {isSmall ? (
         <SimpleList
           primaryText="%{first_name} %{last_name}"
@@ -43,6 +43,8 @@ export const TutorList = () => {
           <EmailField source="email" />
           <TextField source="direction" />
           <TextField source="tlf" />
+          <TextField source="tipo" />
+          <TextField source="tarifa" />
           <TextField source="valoration" />
           <EditButton />
         </Datagrid>
@@ -51,13 +53,13 @@ export const TutorList = () => {
   );
 }
 
-const TutorTitle = () => {
+const CuidadorTitle = () => {
   const record = useRecordContext();
-  return <span>Tutor {record ? `"${record.first_name} ${record.last_name}"` : ''}</span>;
+  return <span>Cuidador {record ? `"${record.first_name} ${record.last_name}"` : ''}</span>;
 };
 
-export const TutorEdit = () => (
-    <Edit title={<TutorTitle />}>
+export const CuidadorEdit = () => (
+    <Edit title={<CuidadorTitle />}>
     <SimpleForm>
         <TextInput source="id" disabled />
         <TextInput source="first_name" />
@@ -65,12 +67,14 @@ export const TutorEdit = () => (
         <EmailField source="email" />
         <TextField source="direction" />
         <TextField source="tlf" />
+        <TextField source="tipo" />
+        <TextField source="tarifa" />
         <TextField source="valoration" />
     </SimpleForm>
     </Edit>
 );
 
-export const TutorCreate = () => (
+export const CuidadorCreate = () => (
     <Create>
         <SimpleForm>
           <TextInput source="first_name" />
@@ -78,6 +82,8 @@ export const TutorCreate = () => (
           <EmailField source="email" />
           <TextField source="direction" />
           <TextField source="tlf" />
+          <TextField source="tipo" />
+          <TextField source="tarifa" />
           <TextField source="valoration" />
         </SimpleForm>
     </Create>
