@@ -46,6 +46,8 @@ return (
         <ReferenceField source="menor_id" reference="menores" link={false}>
           <TextField source="first_name" />
         </ReferenceField>
+        <TextField source="fecha_inicio"/>
+        <TextField source="fecha_fin"/>
         <EditButton />
       </Datagrid>
     )}
@@ -71,6 +73,8 @@ export const ContratacionEdit = () => (
       <ReferenceField source="menor_id" reference="menores" link={false}>
         <TextField source="first_name" />
       </ReferenceField>
+      <TextField source="fecha_inicio"/>
+      <TextField source="fecha_fin"/>
   </SimpleForm>
   </Edit>
 );
@@ -87,6 +91,8 @@ export const ContratacionCreate = () => (
       <ReferenceField source="menor_id" reference="menores" link={false}>
         <TextField source="first_name" />
       </ReferenceField>
+      <TextField source="fecha_inicio"/>
+      <TextField source="fecha_fin"/>
       </SimpleForm>
   </Create>
   );

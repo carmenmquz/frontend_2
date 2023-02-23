@@ -11,6 +11,7 @@ import { default as Login } from 'pages/login';
 import { UserList } from 'components/react-admin/users';
 import { TutorList, TutorEdit, TutorCreate } from 'components/react-admin/tutors';
 import { CuidadorList, CuidadorEdit, CuidadorCreate } from 'components/react-admin/cuidadors';
+import { GuarderiaList, GuarderiaEdit, GuarderiaCreate } from 'components/react-admin/guarderias';
 import { ContratacionList, ContratacionEdit, ContratacionCreate } from 'components/react-admin/contratacions';
 //aquí importa el Artworklist
 
@@ -25,6 +26,7 @@ import { ContratacionList, ContratacionEdit, ContratacionCreate } from 'componen
 import UserIcon from '@mui/icons-material/Group';
 import TutorIcon from '@mui/icons-material/EscalatorWarning';
 import CuidadorIcon from '@mui/icons-material/BabyChangingStation';
+import GuarderiaIcon from '@mui/icons-material/School';
 import ContratacionIcon from '@mui/icons-material/Handshake';
 
 import { AdminLayout } from 'components/react-admin/adminLayout';
@@ -70,8 +72,9 @@ const RAdmin = () => {
       <Resource name="usuarios" list={UserList} icon={UserIcon} recordRepresentation="name" />
       <Resource name="tutores" list={TutorList} icon={TutorIcon} edit={TutorEdit} create={TutorCreate} />
       <Resource name="cuidadores" list={CuidadorList} icon={CuidadorIcon} edit={CuidadorEdit} create={CuidadorCreate} />
+      <Resource name="guarderias" list={GuarderiaList} icon={GuarderiaIcon}/>
       <Resource name="contrataciones"
-      list={ContratacionList} icon={ContratacionIcon} edit={ContratacionEdit} create={ContratacionCreate} />
+      list={ContratacionList} icon={ContratacionIcon} create={ContratacionCreate} />
       {/* <Resource name="migrations"
         list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
       <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} /> */}
