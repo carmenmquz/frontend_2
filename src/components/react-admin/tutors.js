@@ -5,6 +5,7 @@ import {
     Datagrid,
     TextField,
     EmailField,
+    ImageField,
     ReferenceField,
     EditButton,
     SelectInput,
@@ -29,9 +30,9 @@ export const TutorList = () => {
     <List>
       {isSmall ? (
         <SimpleList
-          primaryText="%{first_name} %{last_name}"
+          primaryText="%{name}"
           secondaryText={(record) => record.email}
-          tertiaryText="%{direction} - %{tlf}"
+          tertiaryText="%{direction} - %{telefono}"
           linkType={(record) => (record.canEdit ? 'edit' : 'show')}
         >
           <EditButton />
@@ -39,12 +40,13 @@ export const TutorList = () => {
       ) : (
         <Datagrid bulkActionButtons={false}>
           <TextField source="id" />
-          <TextField source="first_name" />
-          <TextField source="last_name" />
+          <TextField source="name" />
           <EmailField source="email" />
-          <TextField source="direction" />
-          <TextField source="tlf" />
-          <TextField source="valoration" />
+          <TextField source="pais" />
+          <TextField source="ciudad" />
+          <TextField source="sexo" />
+          <TextField source="telefono" />
+          <ImageField source="imagen" />
           <EditButton />
         </Datagrid>
       )}
@@ -52,21 +54,22 @@ export const TutorList = () => {
   );
 }
 
+const TutorTitle = () => {
+  const record = useRecordContext();
+  return <span>Tutor: {record ? `"${record.name}` : ''} Email: {record ? `"${record.email}` : ''}</span>;
+};
+
 export const TutorEdit = () => (
-    <Edit title="Edición">
+    <Edit title={<TutorTitle/>}>
     <SimpleForm>
-          <ReferenceInput source="user_id" reference="usuarios">
-            <SelectInput optionText="name"/>
-          </ReferenceInput>
-          <ReferenceInput source="name" reference="usuarios">
-            <TextInput source="first_name" />
-          </ReferenceInput>
-          <TextInput source="last_name" />
-          <ReferenceInput source="email" reference="usuarios">
-            <TextInput source="email" />
-          </ReferenceInput>
-          <TextInput source="direction" />
-          <TextInput source="tlf" />
+      <TextInput source="id" disabled />
+      <TextInput source="name" />
+      <TextInput source="email" />
+      <TextInput source="pais" />
+      <TextInput source="ciudad" />
+      <TextInput source="sexo" />
+      <TextInput source="telefono" />
+      <ImageField source="imagen" />
     </SimpleForm>
     </Edit>
 );
@@ -74,14 +77,13 @@ export const TutorEdit = () => (
 export const TutorCreate = () => (
     <Create>
         <SimpleForm>
-          <ReferenceInput source="user_id" reference="usuarios">
-            <SelectInput optionText="name"/>
-          </ReferenceInput>
-          <TextInput source="first_name" />
-          <TextInput source="last_name" />
+          <TextInput source="name" />
           <TextInput source="email" />
-          <TextInput source="direction" />
-          <TextInput source="tlf" />
+          <TextInput source="pais" />
+          <TextInput source="ciudad" />
+          <TextInput source="sexo" />
+          <TextInput source="telefono" />
+          <TextInput source="imagen" />
         </SimpleForm>
     </Create>
     );
