@@ -16,15 +16,15 @@ import {
 import { useRecordContext} from 'react-admin';
 import { useMediaQuery } from '@mui/material';
 
-const contratacionFilters = [
-  <TextInput source="q" label="Search" alwaysOn />,
-  <ReferenceInput source="user_id" label="User" reference="users" />
-];
+// const contratacionFilters = [
+//   <TextInput source="q" label="Search" alwaysOn />,
+//   <ReferenceInput source="user_id" label="User" reference="users" />
+// ];
 
 export const ContratacionList = () => {
 const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 return (
-  <List filters={contratacionFilters} >
+  <List>
     {isSmall ? (
       <SimpleList
         primaryText="%{first_name} %{last_name}"
