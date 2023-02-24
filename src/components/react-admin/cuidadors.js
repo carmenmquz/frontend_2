@@ -17,10 +17,10 @@ import {
 import { useRecordContext} from 'react-admin';
 import { useMediaQuery } from '@mui/material';
 
-// const cuidadorFilters = [
-//     <TextInput source="q" label="Search" alwaysOn />,
-//     <ReferenceInput source="user_id" label="User" reference="usuarios" />
-// ];
+//  const cuidadorFilters = [
+//       <TextInput source="q" label="Search" alwaysOn />,
+//       <ReferenceInput source="user_id" label="User" reference="usuarios" />
+//  ];
 
 export const CuidadorList = () => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
