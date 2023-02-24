@@ -17,15 +17,15 @@ import {
 import { useRecordContext} from 'react-admin';
 import { useMediaQuery } from '@mui/material';
 
-const cuidadorFilters = [
-    <TextInput source="q" label="Search" alwaysOn />,
-    <ReferenceInput source="user_id" label="User" reference="usuarios" />
-];
+// const cuidadorFilters = [
+//     <TextInput source="q" label="Search" alwaysOn />,
+//     <ReferenceInput source="user_id" label="User" reference="usuarios" />
+// ];
 
 export const CuidadorList = () => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   return (
-    <List filters={cuidadorFilters} >
+    <List>
       {isSmall ? (
         <SimpleList
           primaryText="%{first_name} %{last_name}"
@@ -43,7 +43,6 @@ export const CuidadorList = () => {
           <EmailField source="email" />
           <TextField source="direction" />
           <TextField source="tlf" />
-          <TextField source="tipo" />
           <TextField source="tarifa" />
           <TextField source="valoration" />
           <EditButton />
@@ -67,7 +66,6 @@ export const CuidadorEdit = () => (
         <EmailField source="email" />
         <TextField source="direction" />
         <TextField source="tlf" />
-        <TextField source="tipo" />
         <TextField source="tarifa" />
         <TextField source="valoration" />
     </SimpleForm>
@@ -82,7 +80,6 @@ export const CuidadorCreate = () => (
           <EmailField source="email" />
           <TextField source="direction" />
           <TextField source="tlf" />
-          <TextField source="tipo" />
           <TextField source="tarifa" />
           <TextField source="valoration" />
         </SimpleForm>

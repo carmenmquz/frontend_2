@@ -7,6 +7,7 @@ import {
     EmailField,
     ReferenceField,
     EditButton,
+    SelectInput,
     Edit,
     Create,
     SimpleForm,
@@ -17,15 +18,15 @@ import {
 import { useRecordContext} from 'react-admin';
 import { useMediaQuery } from '@mui/material';
 
-const tutorFilters = [
-    <TextInput source="q" label="Search" alwaysOn />,
-    <ReferenceInput source="user_id" label="User" reference="users" />
-];
+// const tutorFilters = [
+//     <TextInput source="q" label="Search" alwaysOn />,
+//     <ReferenceInput source="user_id" label="User" reference="users" />
+// ];
 
 export const TutorList = () => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   return (
-    <List filters={tutorFilters} >
+    <List>
       {isSmall ? (
         <SimpleList
           primaryText="%{first_name} %{last_name}"
@@ -51,21 +52,21 @@ export const TutorList = () => {
   );
 }
 
-const TutorTitle = () => {
-  const record = useRecordContext();
-  return <span>Tutor {record ? `"${record.first_name} ${record.last_name}"` : ''}</span>;
-};
-
 export const TutorEdit = () => (
-    <Edit title={<TutorTitle />}>
+    <Edit title="Edición">
     <SimpleForm>
-        <TextInput source="id" disabled />
-        <TextInput source="first_name" />
-        <TextInput source="last_name" />
-        <EmailField source="email" />
-        <TextField source="direction" />
-        <TextField source="tlf" />
-        <TextField source="valoration" />
+          <ReferenceInput source="user_id" reference="usuarios">
+            <SelectInput optionText="name"/>
+          </ReferenceInput>
+          <ReferenceInput source="name" reference="usuarios">
+            <TextInput source="first_name" />
+          </ReferenceInput>
+          <TextInput source="last_name" />
+          <ReferenceInput source="email" reference="usuarios">
+            <TextInput source="email" />
+          </ReferenceInput>
+          <TextInput source="direction" />
+          <TextInput source="tlf" />
     </SimpleForm>
     </Edit>
 );
@@ -73,12 +74,14 @@ export const TutorEdit = () => (
 export const TutorCreate = () => (
     <Create>
         <SimpleForm>
+          <ReferenceInput source="user_id" reference="usuarios">
+            <SelectInput optionText="name"/>
+          </ReferenceInput>
           <TextInput source="first_name" />
           <TextInput source="last_name" />
-          <EmailField source="email" />
-          <TextField source="direction" />
-          <TextField source="tlf" />
-          <TextField source="valoration" />
+          <TextInput source="email" />
+          <TextInput source="direction" />
+          <TextInput source="tlf" />
         </SimpleForm>
     </Create>
     );
