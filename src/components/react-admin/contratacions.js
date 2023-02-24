@@ -37,17 +37,12 @@ return (
     ) : (
       <Datagrid bulkActionButtons={false}>
         <TextField source="id" />
-        <ReferenceField source="tutor_id" reference="tutores">
-          <TextField source="first_name" />
-        </ReferenceField>
         <ReferenceField source="cuidador_id" reference="cuidadores">
-          <TextField source="first_name" />
+          <TextField source="name" />
         </ReferenceField>
         <ReferenceField source="menor_id" reference="menores" link={false}>
-          <TextField source="first_name" />
+          <TextField source="name" />
         </ReferenceField>
-        <TextField source="fecha_inicio"/>
-        <TextField source="fecha_fin"/>
         <EditButton />
       </Datagrid>
     )}
@@ -64,17 +59,12 @@ export const ContratacionEdit = () => (
   <Edit title={<ContratacionTitle />}>
   <SimpleForm>
       <TextInput source="id" disabled />
-      <ReferenceField source="tutor_id" reference="tutores" link={false}>
-        <TextField source="first_name" />
-      </ReferenceField>
       <ReferenceField source="cuidador_id" reference="cuidadores" link={false}>
-        <TextField source="first_name" />
+        <TextField source="name" />
       </ReferenceField>
       <ReferenceField source="menor_id" reference="menores" link={false}>
-        <TextField source="first_name" />
+        <TextField source="name" />
       </ReferenceField>
-      <TextField source="fecha_inicio"/>
-      <TextField source="fecha_fin"/>
   </SimpleForm>
   </Edit>
 );
@@ -82,17 +72,12 @@ export const ContratacionEdit = () => (
 export const ContratacionCreate = () => (
   <Create>
       <SimpleForm>
-      <ReferenceField source="tutor_id" reference="tutores" link={false}>
-        <TextField source="first_name" />
-      </ReferenceField>
       <ReferenceField source="cuidador_id" reference="cuidadores" link={false}>
-        <TextField source="first_name" />
+        <TextField source="name" />
       </ReferenceField>
       <ReferenceField source="menor_id" reference="menores" link={false}>
-        <TextField source="first_name" />
+        <TextField source="name" />
       </ReferenceField>
-      <TextField source="fecha_inicio"/>
-      <TextField source="fecha_fin"/>
       </SimpleForm>
   </Create>
   );

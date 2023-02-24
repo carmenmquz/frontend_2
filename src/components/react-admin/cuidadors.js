@@ -28,9 +28,9 @@ export const CuidadorList = () => {
     <List>
       {isSmall ? (
         <SimpleList
-          primaryText="%{first_name} %{last_name}"
+          primaryText="%{name}"
           secondaryText={(record) => record.email}
-          tertiaryText="%{direction} - %{tlf}"
+          tertiaryText="%{direccion} - %{telefono}"
           linkType={(record) => (record.canEdit ? 'edit' : 'show')}
         >
           <EditButton />
@@ -38,13 +38,10 @@ export const CuidadorList = () => {
       ) : (
         <Datagrid bulkActionButtons={false}>
           <TextField source="id" />
-          <TextField source="first_name" />
-          <TextField source="last_name" />
-          <EmailField source="email" />
-          <TextField source="direction" />
-          <TextField source="tlf" />
-          <TextField source="tarifa" />
-          <TextField source="valoration" />
+          <TextField source="name" />
+          <TextField source="direccion" />
+          <TextField source="edad" />
+          <TextField source="telefono" />
           <EditButton />
         </Datagrid>
       )}
@@ -61,13 +58,10 @@ export const CuidadorEdit = () => (
     <Edit title={<CuidadorTitle />}>
     <SimpleForm>
         <TextInput source="id" disabled />
-        <TextInput source="first_name" />
-        <TextInput source="last_name" />
-        <EmailField source="email" />
-        <TextField source="direction" />
-        <TextField source="tlf" />
-        <TextField source="tarifa" />
-        <TextField source="valoration" />
+        <TextInput source="name" />
+        <TextInput source="direccion" />
+        <TextInput source="edad" />
+        <TextInput source="telefono" />
     </SimpleForm>
     </Edit>
 );
@@ -75,13 +69,10 @@ export const CuidadorEdit = () => (
 export const CuidadorCreate = () => (
     <Create>
         <SimpleForm>
-          <TextInput source="first_name" />
-          <TextInput source="last_name" />
-          <EmailField source="email" />
-          <TextField source="direction" />
-          <TextField source="tlf" />
-          <TextField source="tarifa" />
-          <TextField source="valoration" />
+          <TextInput source="name" />
+          <TextInput source="direccion" />
+          <TextInput source="edad" />
+          <TextInput source="telefono" />
         </SimpleForm>
     </Create>
     );
